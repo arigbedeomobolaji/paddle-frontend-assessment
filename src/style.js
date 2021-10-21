@@ -2,11 +2,12 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const GlobalStyle = createGlobalStyle`
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+	@import url('https://fonts.googleapis.com/css2?family=Ranchers&family=Rubik:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+	* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
 
   body {
   margin: 0;
@@ -64,4 +65,5 @@ export const CustomLink = styled(Link)`
 	text-decoration: none;
 	color: ${({ color, theme }) => (color ? color : theme.color.lightDark)};
 	display: inline-block;
+	font-family: 'Ranchers';
 `;
