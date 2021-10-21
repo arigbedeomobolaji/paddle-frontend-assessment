@@ -30,25 +30,42 @@ export const theme = {
 };
 
 export const Title = styled.h1`
-	font-size: ${({ fontSize }) => (fontSize ? fontSize : '3.5rem')};
+	font-size: ${({ fontSize }) => (fontSize ? fontSize : '3.25rem')};
 	font-weight: bold;
-	padding: 1rem;
-	margin: 0.5rem;
+	padding: 0.5rem;
+	width: ${({ width }) => (width ? width : '100%')};
 
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
 		font-size: 2rem;
-		padding: 0.5rem;
+		padding: 0.35rem 1rem;
+		width: 100%;
 	}
 `;
 
 export const Text = styled.p`
-	font-size: ${({ fontSize }) => (fontSize ? fontSize : '1.5rem')};
+	font-size: ${({ fontSize }) => (fontSize ? fontSize : '1rem')};
 	font-weight: ${({ isBold }) => !!isBold && 'bold'};
-	padding: 0.75rem;
-	margin: 0.35rem;
+	padding: 0.5rem;
+	width: ${({ width }) => (width ? width : '100%')};
 
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
-		font-size: 1rem;
-		padding: 0.5rem;
+		font-size: 0.85rem;
+		padding: 0.35rem 1rem;
+		width: 100%;
 	}
+`;
+
+export const ImageWrapper = styled.div`
+	width: 100%;
+	height: 100%;
+
+	@media (max-width: ${({ theme }) =>
+			theme.screen.tablet && theme.screen.tablet}) {
+		width: 60%;
+	}
+`;
+
+export const Image = styled.img`
+	object-fit: contain;
+	width: 100%;
 `;

@@ -20,7 +20,7 @@ const RightNavbar = styled(ItemWrapper)``;
 const Header = ({ theme }) => {
 	return (
 		<>
-			<PageWrapper justifyContent='space-around'>
+			<PageWrapper justifyContent='space-around' flexWrap>
 				<Logo>PEDDLE</Logo>
 				<Navbar justifyContent='flex-start' alignItems='center'>
 					<Link to='#'>About</Link>
