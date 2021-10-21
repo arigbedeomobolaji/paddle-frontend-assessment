@@ -17,8 +17,8 @@ const Btn = styled.button`
 
 	@media (max-width: ${({ theme }) =>
 			theme.screen.tablet && theme.screen.tablet}) {
-		padding: 0.75rem 1.5rem;
-		margin: 0.2rem;
+		padding: ${({ isLarge }) => (isLarge ? '0.5rem 1.5rem' : '0.5rem 0.95rem')};
+		margin: 0.1rem;
 	}
 `;
 
