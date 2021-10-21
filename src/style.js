@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 export const theme = {
 	color: {
 		primary: '#ba55d3',
+		secondary: '#f5f5f5',
 		dark: '#0b132a',
 		lightDark: '#4f5665',
 	},
@@ -31,9 +32,10 @@ export const theme = {
 
 export const Title = styled.h1`
 	font-size: ${({ fontSize }) => (fontSize ? fontSize : '3.25rem')};
-	font-weight: bold;
-	padding: 0.5rem;
+	font-weight: ${({ bold }) => (bold ? bold : 'bold')};
+	padding: ${({ padding }) => (padding ? padding : '0.5rem')};
 	width: ${({ width }) => (width ? width : '100%')};
+	line-height: 1.5;
 
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
 		font-size: 2rem;
@@ -45,8 +47,9 @@ export const Title = styled.h1`
 export const Text = styled.p`
 	font-size: ${({ fontSize }) => (fontSize ? fontSize : '1rem')};
 	font-weight: ${({ isBold }) => !!isBold && 'bold'};
-	padding: 0.5rem;
+	padding: ${({ padding }) => (padding ? padding : '0.5rem')};
 	width: ${({ width }) => (width ? width : '100%')};
+	line-height: 1.3;
 
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
 		font-size: 0.85rem;
@@ -56,8 +59,11 @@ export const Text = styled.p`
 `;
 
 export const ImageWrapper = styled.div`
-	width: 100%;
+	width: ${({ width }) => (width ? width : '100%')};
 	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	@media (max-width: ${({ theme }) =>
 			theme.screen.tablet && theme.screen.tablet}) {
@@ -68,4 +74,38 @@ export const ImageWrapper = styled.div`
 export const Image = styled.img`
 	object-fit: contain;
 	width: 100%;
+`;
+
+export const Icon = styled.div`
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #e5e5e5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(186, 85, 211, 0.25);
+	color: ${({ theme }) => theme.color.primary};
+`;
+
+export const Data = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 0 2.5rem;
+
+	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
+		padding-left: 0.5rem;
+	}
+`;
+
+export const Bullet = styled.div`
+	height: 20px;
+	width: 20px;
+	border-radius: 5px;
+	background: ${({ theme }) => theme.color.primary};
+`;
+
+export const ListText = styled.p`
+	font-size: 0.9rem;
+	padding: 0 0 0 1rem;
 `;
