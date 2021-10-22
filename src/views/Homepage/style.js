@@ -72,3 +72,6 @@ export const GettingStartedWrapper = styled(ChoosePlanContainer)``;
 export const Sponsors = styled(ItemWrapper)`
 	padding-top: 3rem;
 `;
+
+// Testimonies
+export const TestimoniesWrapper = styled(ChoosePlanContainer)``;

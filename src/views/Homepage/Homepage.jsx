@@ -6,6 +6,7 @@ import AppInfo from './AppInfo';
 import Features from './Features';
 import ChoosePlan from './ChoosePlan';
 import GettingStarted from './GettingStarted';
+import Testimonies from './Testimonies';
 
 const HomePage = () => {
 	return (
@@ -15,6 +16,7 @@ const HomePage = () => {
 			<Features />
 			<ChoosePlan />
 			<GettingStarted />
+			<Testimonies />
 		</>
 	);
 };

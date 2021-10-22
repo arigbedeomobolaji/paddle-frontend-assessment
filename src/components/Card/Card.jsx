@@ -1,6 +1,6 @@
 // jshint ignore:start
 import React from 'react';
-import { CardWrapper, Pricing, InnerWrapper, PriceTitle } from './style';
+import { CardWrapper, Pricing, InnerWrapper, CardSubtitle } from './style';
 import {
 	ImageWrapper,
 	Image,
@@ -66,9 +66,9 @@ const Card = ({ src, alt, plan, planAccess, price, primary }) => {
 							justifyContent='center'
 							alignItems='center'
 						>
-							<PriceTitle padding='0' fontSize='1.5rem' textAlign>
+							<CardSubtitle padding='0' fontSize='1.5rem' textAlign>
 								$ {price}
-							</PriceTitle>
+							</CardSubtitle>
 							<Text padding='0' fontSize='1.5rem'>
 								/ mo{' '}
 							</Text>

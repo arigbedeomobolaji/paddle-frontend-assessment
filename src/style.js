@@ -62,6 +62,12 @@ export const Text = styled.p`
 	}
 `;
 
+export const Rating = styled.p`
+	font-size: 0.85rem;
+	font-weight: 300;
+	padding-right: 0.5rem;
+`;
+
 export const ImageWrapper = styled.div`
 	width: ${({ width }) => (width ? width : '100%')};
 	height: 100%;
@@ -73,6 +79,13 @@ export const ImageWrapper = styled.div`
 			theme.screen.tablet && theme.screen.tablet}) {
 		width: 90%;
 	}
+`;
+
+export const Avatar = styled.div`
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	padding-right: 0.5rem;
 `;
 
 export const Image = styled.img`
@@ -123,11 +136,28 @@ export const List = styled(ItemWrapper)`
 `;
 
 export const ListItem = styled(ItemWrapper)`
-	padding: 0 0 1rem;
+	padding: ${({ padding }) => (padding ? padding + ' 0' : '0 0 1rem')};
 `;
 
 // Icons
 
 export const CheckIcon = styled(MuiCheckIcon)`
 	color: ${({ theme }) => theme.color.primary};
+`;
+
+export const CarouselButton = styled.div`
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: ${({ primary, theme }) =>
+		primary ? theme.color.primary : '#fff'};
+	color: ${({ primary, theme }) => (primary ? '#fff' : theme.color.primary)};
+	margin-right: 1rem;
+	border-radius: 100%;
+
+	& > * {
+		font-size: 2rem;
+	}
 `;
