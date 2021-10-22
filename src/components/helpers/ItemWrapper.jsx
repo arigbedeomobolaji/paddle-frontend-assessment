@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 	width: ${({ width }) => (width ? width : 'auto')};
 
 	@media (max-width: ${({ theme }) => theme.screen && theme.screen.tablet}) {
-		flex-direction: ${({ md }) => (md && !!md ? 'column' : 'row')};
+		flex-direction: ${({ md }) => (md ? 'column' : 'row')};
 		justify-content: ${({ md }) => md && 'center'};
 		align-items: ${({ md }) => md && 'center'};
 	}

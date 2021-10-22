@@ -10,19 +10,19 @@ import { AppInfoWrapper, Info } from './style';
 const AppInfo = () => {
 	return (
 		<>
-			<AppInfoWrapper width='70%' margin='auto'>
-				<Info justifyContent='center' alignItems='center' width='100%'>
+			<AppInfoWrapper width='70%' margin='auto' md>
+				<Info justifyContent='center' alignItems='center' width='80%'>
 					<Icon>
 						<PersonIcon />
 					</Icon>
 					<Data>
-						<Title fontSize='1.2rem' padding='0'>
+						<Title fontSize='1.2rem' padding='0' small>
 							90+
 						</Title>
 						<Text padding='0'>Users</Text>
 					</Data>
 				</Info>
-				<Info justifyContent='center' alignItems='center' width='100%'>
+				<Info justifyContent='center' alignItems='center' width='80%'>
 					<Icon>
 						<LocationOnIcon />
 					</Icon>
@@ -31,7 +31,7 @@ const AppInfo = () => {
 						<Text>Locations</Text>
 					</Data>
 				</Info>
-				<Info justifyContent='center' alignItems='center' width='100%'>
+				<Info justifyContent='center' alignItems='center' width='80%'>
 					<Icon>
 						<DnsIcon />
 					</Icon>

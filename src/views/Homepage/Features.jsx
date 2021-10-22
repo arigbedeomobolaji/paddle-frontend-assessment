@@ -1,19 +1,15 @@
 // jshint ignore: start
 
 import React from 'react';
-import {
-	FeatureWrapper,
-	FeaturesContent,
-	PageWrapper,
-	List,
-	ListItem,
-} from './style';
+import { FeatureWrapper, FeaturesContent, PageWrapper } from './style';
 import {
 	ImageWrapper,
 	Image,
 	Title,
 	Text,
 	Bullet,
+	List,
+	ListItem,
 	ListText,
 } from '../../style';
 import piano_music from '../../images/illustration/piano_music.png';
@@ -37,7 +33,7 @@ const Features = () => {
 				<ImageWrapper width='70%'>
 					<Image src={piano_music} alt='Piano_Music' />
 				</ImageWrapper>
-				<FeaturesContent flexDirection='column' alignItems='flex-start'>
+				<FeaturesContent flexDirection='column' alignItems='flex-start' md>
 					<Title fontSize='2rem' padding='0.95rem' bold='500'>
 						Features We Provide For You
 					</Title>
@@ -47,13 +43,13 @@ const Features = () => {
 					<Text padding='0.35rem'>
 						Mauris ac libero eu sem finibus lacinia nec pulvinar.
 					</Text>
-					<List flexDirection='column' alignItems='flex-start'>
+					<List flexDirection='column' alignItems='flex-start' width="100%" md>
 						{features.map((feature) => {
 							return (
 								<ListItem
 									key={feature}
 									justifyContent='flex-start'
-									alignItems='center'
+									alignItems='flex-start'
 								>
 									<Bullet />
 									<ListText>{feature}</ListText>

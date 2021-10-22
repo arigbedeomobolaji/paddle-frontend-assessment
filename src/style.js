@@ -1,4 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import MuiCheckIcon from '@material-ui/icons/Check';
+import ItemWrapper from './components/helpers/ItemWrapper';
 
 export const GlobalStyle = createGlobalStyle`
 	@import url('https://fonts.googleapis.com/css2?family=Ranchers&family=Rubik:ital,wght@0,300;0,400;0,500;1,400&display=swap');
@@ -35,10 +37,11 @@ export const Title = styled.h1`
 	font-weight: ${({ bold }) => (bold ? bold : 'bold')};
 	padding: ${({ padding }) => (padding ? padding : '0.5rem')};
 	width: ${({ width }) => (width ? width : '100%')};
-	line-height: 1.5;
+	line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : 1.6)};
+	text-align: ${({ textAlign }) => !!textAlign && 'center'};
 
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
-		font-size: 2rem;
+		font-size: {({small}) => small ? '1rem' : '2rem'};
 		padding: 0.35rem 1rem;
 		width: 100%;
 	}
@@ -47,13 +50,14 @@ export const Title = styled.h1`
 export const Text = styled.p`
 	font-size: ${({ fontSize }) => (fontSize ? fontSize : '1rem')};
 	font-weight: ${({ isBold }) => !!isBold && 'bold'};
-	padding: ${({ padding }) => (padding ? padding : '0.5rem')};
+	padding: ${({ padding }) => (padding ? padding + ' 0' : '0.5rem 0')};
 	width: ${({ width }) => (width ? width : '100%')};
-	line-height: 1.3;
+	line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : 1.3)};
+	text-align: ${({ textAlign }) => !!textAlign && 'center'};
 
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
 		font-size: 0.85rem;
-		padding: 0.35rem 1rem;
+		padding: 1rem;
 		width: 100%;
 	}
 `;
@@ -67,7 +71,7 @@ export const ImageWrapper = styled.div`
 
 	@media (max-width: ${({ theme }) =>
 			theme.screen.tablet && theme.screen.tablet}) {
-		width: 60%;
+		width: 90%;
 	}
 `;
 
@@ -108,4 +112,22 @@ export const Bullet = styled.div`
 export const ListText = styled.p`
 	font-size: 0.9rem;
 	padding: 0 0 0 1rem;
+`;
+
+// List style
+export const List = styled(ItemWrapper)`
+	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
+		align-items: flex-start;
+		padding-top: 2rem;
+	}
+`;
+
+export const ListItem = styled(ItemWrapper)`
+	padding: 0 0 1rem;
+`;
+
+// Icons
+
+export const CheckIcon = styled(MuiCheckIcon)`
+	color: ${({ theme }) => theme.color.primary};
 `;

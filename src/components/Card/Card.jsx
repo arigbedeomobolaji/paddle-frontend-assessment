@@ -1,6 +1,6 @@
 // jshint ignore:start
 import React from 'react';
-import { CardWrapper, Pricing, InnerWrapper } from './style';
+import { CardWrapper, Pricing, InnerWrapper, PriceTitle } from './style';
 import {
 	ImageWrapper,
 	Image,
@@ -21,11 +21,15 @@ const Card = ({ src, alt, plan, planAccess, price, primary }) => {
 				alignItems='center'
 				justifyContent='space-between'
 				primary={primary}
+				width='95%'
+				md
 			>
 				<InnerWrapper
 					flexDirection='column'
 					alignItems='center'
 					justifyContent='center'
+					width='100%'
+					md
 				>
 					<ImageWrapper width='60%'>
 						<Image src={src} alt={alt} />
@@ -33,7 +37,7 @@ const Card = ({ src, alt, plan, planAccess, price, primary }) => {
 					<Title fontSize='1.3rem' textAlign padding='1rem'>
 						{plan}
 					</Title>
-					<List flexDirection='column' alignItems='flex-start'>
+					<List flexDirection='column' alignItems='flex-start' md>
 						{planAccess.map((access) => {
 							return (
 								<ListItem
@@ -52,28 +56,30 @@ const Card = ({ src, alt, plan, planAccess, price, primary }) => {
 					flexDirection='column'
 					alignItems='center'
 					justifyContent='center'
+					width='100%'
+					md
 				>
 					{typeof price === 'number' ? (
 						<Pricing
 							padding='0'
-							width='50%'
+							width='90%'
 							justifyContent='center'
 							alignItems='center'
 						>
-							<Title padding='0' fontSize='1.2rem' textAlign>
+							<PriceTitle padding='0' fontSize='1.5rem' textAlign>
 								$ {price}
-							</Title>
-							<Text padding='0' fontSize='1.1rem'>
-								/mo{' '}
+							</PriceTitle>
+							<Text padding='0' fontSize='1.5rem'>
+								/ mo{' '}
 							</Text>
 						</Pricing>
 					) : (
-						<Title fontSize='1.2rem' textAlign>
+						<Title fontSize='1.5rem' textAlign>
 							{' '}
 							{price}
 						</Title>
 					)}
-					<Button isLarge primary={!!primary}>
+					<Button width='60%' isLarge primary={!!primary}>
 						Select
 					</Button>
 				</InnerWrapper>
