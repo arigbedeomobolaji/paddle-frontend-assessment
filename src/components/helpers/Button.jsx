@@ -5,7 +5,8 @@ import styled from 'styled-components';
 
 const Btn = styled.button`
 	display: inline-block;
-	padding: ${({ isLarge }) => (isLarge ? '0.85rem 3.85rem' : '0.75rem 2.5rem')};
+	font-family: 'Rubik', sans-serif;
+	padding: ${({ isLarge }) => (isLarge ? '1rem 3.85rem' : '0.95rem 2.5rem')};
 	margin: ${({ margin }) => (margin ? margin + ' 0' : '0.55rem 0')};
 	outline: none;
 	border: ${({ primary, theme }) =>

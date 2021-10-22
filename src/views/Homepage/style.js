@@ -18,7 +18,8 @@ export const ShowcaseContent = styled(ItemWrapper)`
 `;
 
 export const AppInfoWrapper = styled(ItemWrapper)`
-	margin: 4rem auto -3rem;
+	margin: ${({ margin }) =>
+		margin ? margin + ' auto -3rem' : '4rem auto -3rem'};
 	border-radius: 10px;
 	box-shadow: 1px 1px 5px #e7e7e7;
 	position: relative;

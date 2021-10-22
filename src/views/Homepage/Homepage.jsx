@@ -7,6 +7,7 @@ import Features from './Features';
 import ChoosePlan from './ChoosePlan';
 import GettingStarted from './GettingStarted';
 import Testimonies from './Testimonies';
+import Subscribe from './Subscribe';
 
 const HomePage = () => {
 	return (
@@ -17,6 +18,7 @@ const HomePage = () => {
 			<ChoosePlan />
 			<GettingStarted />
 			<Testimonies />
+			<Subscribe />
 		</>
 	);
 };
