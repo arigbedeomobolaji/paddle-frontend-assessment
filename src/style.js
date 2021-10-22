@@ -32,6 +32,12 @@ export const theme = {
 	},
 };
 
+export const Logo = styled.h1`
+	font-family: 'Ranchers', cursive;
+	font-weight: 30px;
+	color: ${({ theme }) => theme.color.primary};
+`;
+
 export const Title = styled.h1`
 	font-size: ${({ fontSize }) => (fontSize ? fontSize : '3.25rem')};
 	font-weight: ${({ bold }) => (bold ? bold : 'bold')};

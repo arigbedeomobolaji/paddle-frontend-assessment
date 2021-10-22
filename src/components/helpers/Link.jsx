@@ -11,6 +11,11 @@ const CustomLink = styled(RouterLink)`
 	font-weight: ${({ bold }) => !!bold && 'bold'};
 	font-size: ${({ fontSize }) => (fontSize ? fontSize : '1rem')};
 
+	&:hover {
+		cursor: pointer;
+		color: ${({ color, theme }) => (color ? color : theme.color.dark)};
+	}
+
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
 		padding: 0.75rem;
 		font-size: 0.95rem;

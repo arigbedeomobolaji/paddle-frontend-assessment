@@ -76,3 +76,8 @@ export const Sponsors = styled(ItemWrapper)`
 
 // Testimonies
 export const TestimoniesWrapper = styled(ChoosePlanContainer)``;
+
+// subscribe
+export const SubscribeWrapper = styled(ItemWrapper)`
+	background: ${({ theme }) => theme.color.secondary};
+`;

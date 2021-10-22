@@ -2,16 +2,11 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import Button from '../helpers/Button';
+import { Logo } from '../../style';
 import Link from '../helpers/Link';
 import ItemWrapper from '../helpers/ItemWrapper';
 
 const PageWrapper = styled(ItemWrapper)``;
-
-const Logo = styled.h1`
-	font-family: 'Ranchers', cursive;
-	font-weight: 30px;
-	color: ${({ theme }) => theme.color.primary};
-`;
 
 const Navbar = styled(ItemWrapper)``;
 

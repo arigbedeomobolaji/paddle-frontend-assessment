@@ -17,7 +17,12 @@ const Btn = styled.button`
 		primary ? theme.color.primary : '#fff'};
 	font-size: ${({ fontSize }) => (fontSize ? fontSize + 'rem' : '1rem')};
 	width: ${({ width }) => width && width};
-
+	transition: all 2s ease-in;
+	/* #b025d3 */
+	&:hover {
+		cursor: pointer;
+		background-color: ${({ primary }) => (primary ? '#b025d3' : '#f0f0f0')};
+	}
 	@media (max-width: ${({ theme }) =>
 			theme.screen.tablet && theme.screen.tablet}) {
 		padding: ${({ isLarge }) => (isLarge ? '0.5rem 1.5rem' : '0.5rem 0.95rem')};
