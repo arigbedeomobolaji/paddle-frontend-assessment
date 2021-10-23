@@ -30,7 +30,7 @@ const AppInfo = () => {
 						</Text>
 					</ShowcaseContent>
 					<ItemWrapper width='60%' justifyContent='center' alignItems='center'>
-						<Button width='70%' fontSize='1.4' primary isLarge>
+						<Button width='90%' fontSize='1.4' primary isLarge>
 							Subscribe Now
 						</Button>
 					</ItemWrapper>

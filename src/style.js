@@ -51,6 +51,11 @@ export const Title = styled.h1`
 		padding: 0.35rem 1rem;
 		width: 100%;
 	}
+
+	@media(max-width: 500px){
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
 `;
 
 export const Text = styled.p`
@@ -66,10 +71,14 @@ export const Text = styled.p`
 		padding: 1rem;
 		width: 100%;
 	}
+
+	@media (max-width: 500px) {
+		font-size: 0.85rem;
+	}
 `;
 
 export const Rating = styled.p`
-	font-size: 0.85rem;
+	font-size: 0.95rem;
 	font-weight: 300;
 	padding-right: 0.5rem;
 `;

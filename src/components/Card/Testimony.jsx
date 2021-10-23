@@ -6,8 +6,10 @@ import {
 	UserDetail,
 	Review,
 	StarIcon,
+	UserName,
+	UserLocation,
 } from './style';
-import { Text, Title, Rating, Image, Avatar } from '../../style';
+import { Text, Rating, Image, Avatar } from '../../style';
 
 const Testimony = ({ src, name, location, rating = '4.5', primary }) => {
 	return (
@@ -32,13 +34,14 @@ const Testimony = ({ src, name, location, rating = '4.5', primary }) => {
 							flexDirection='column'
 							alignItems='center'
 							justifyContent='center'
+							md
 						>
-							<Title fontSize='0.9rem' padding='0'>
+							<UserName fontSize='0.9rem' padding='0'>
 								{name}
-							</Title>
-							<Text padding='0' fontSize='0.85rem'>
+							</UserName>
+							<UserLocation padding='0' fontSize='0.85rem'>
 								{location}
-							</Text>
+							</UserLocation>
 						</UserDetail>
 					</Details>
 					<Review>

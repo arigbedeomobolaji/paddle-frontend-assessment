@@ -6,21 +6,40 @@ import { Logo } from '../../style';
 import Link from '../helpers/Link';
 import ItemWrapper from '../helpers/ItemWrapper';
 
-const PageWrapper = styled(ItemWrapper)``;
+const PageWrapper = styled(ItemWrapper)`
+	@media (max-width: 840px) {
+		justify-content: space-between;
+	}
+`;
 
-const Navbar = styled(ItemWrapper)``;
+const Navbar = styled(ItemWrapper)`
+	@media (max-width: 840px) {
+		display: none;
+	}
+`;
 
-const RightNavbar = styled(ItemWrapper)``;
+const RightNavbar = styled(ItemWrapper)`
+	@media (max-width: 840px) {
+		display: none;
+	}
+`;
 
 const Hamburger = styled.h1`
 	font-size: 3rem;
+	color: ${({ theme }) => theme.color.primary};
+	cursor: pointer;
+	display: none;
+
+	@media (max-width: 840px) {
+		display: block;
+	}
 `;
 const ResponsiveNavbarWrapper = styled.div`
 	position: absolute;
-	max-width: 400px;
+	width: 300px;
+	max-width: 300px;
 	right: 0;
 	background: #fff;
-	display: none;
 
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
 	}
@@ -30,6 +49,14 @@ const ResponsiveNavbar = styled(ItemWrapper)`
 	width: 100%;
 	flex-direction: column;
 	padding: 1rem;
+
+	& > * {
+		width: 100%;
+		transition: background-color 0.35s ease-in;
+	}
+	& *:hover {
+		background-color: ${({ theme }) => theme.color.secondary};
+	}
 `;
 
 const Header = ({ theme }) => {
@@ -55,7 +82,9 @@ const Header = ({ theme }) => {
 					</>
 				)}
 
-				<Hamburger onClick={setIsClosed(!isClosed)}>=</Hamburger>
+				<Hamburger onClick={() => setIsClosed(!isClosed)}>
+					{isClosed ? '=' : 'x'}
+				</Hamburger>
 			</PageWrapper>
 
 			{!isClosed && (

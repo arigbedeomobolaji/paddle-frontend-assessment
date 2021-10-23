@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Star from '@material-ui/icons/Star';
-import { Title, ListItem } from '../../style';
+import { Title, Text, ListItem } from '../../style';
 import ItemWrapper from '../helpers/ItemWrapper';
 
 export const CardWrapper = styled(ItemWrapper)`
@@ -53,6 +53,22 @@ export const Details = styled(ListItem)`
 	flex: 0.95;
 `;
 
+export const UserName = styled(Title)`
+	@media (max-width: 500px) {
+		font-size: 0.5rem;
+		padding: 0;
+		margin: 0;
+	}
+`;
+
+export const UserLocation = styled(Text)`
+	@media (max-width: 500px) {
+		font-size: 0.5rem;
+		padding: 0;
+		margin: 0;
+	}
+`;
+
 export const Review = styled(ListItem)`
 	padding: 0.5rem;
 `;
@@ -60,6 +76,10 @@ export const Review = styled(ListItem)`
 export const UserDetail = styled(ListItem)`
 	flex: 0.9;
 	width: 100%;
+
+	@media (max-width: 500px) {
+		justify-content: flex-start;
+	}
 `;
 
 export const StarIcon = styled(Star)`
