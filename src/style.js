@@ -47,12 +47,12 @@ export const Title = styled.h1`
 	text-align: ${({ textAlign }) => !!textAlign && 'center'};
 
 	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
-		font-size: {({small}) => small ? '1rem' : '2rem'};
+		font-size: ${({ small }) => (small ? '1rem' : '2rem')};
 		padding: 0.35rem 1rem;
 		width: 100%;
 	}
 
-	@media(max-width: 500px){
+	@media (max-width: 500px) {
 		font-size: 1.5rem;
 		font-weight: bold;
 	}

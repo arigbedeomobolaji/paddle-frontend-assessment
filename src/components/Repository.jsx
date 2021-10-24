@@ -1,3 +1,5 @@
+// jshint ignore:start
+
 import React from 'react';
 import styled from 'styled-components';
 import { ImageWrapper, Image, Title, Text } from '../style';
@@ -6,7 +8,8 @@ import Button from './helpers/Button';
 
 const RepositoryWrapper = styled(ItemWrapper)`
 	width: 100%;
-	box-shadow: 1px 1px 5px #e9e9e9;
+	margin-bottom: 1rem;
+	box-shadow: 1px 1px 5px #b9b9b9;
 
 	& > *:first-child {
 		flex: 3;
@@ -20,7 +23,7 @@ const RepositoryInfo = styled.div`
 	align-items: flex-start;
 `;
 
-const RepositoryDetails = styled(RepositoryWrapper)``;
+const RepositoryDetails = styled(ItemWrapper)``;
 
 const RepoButton = styled(Button)`
 	padding: 0.5rem 1rem;
@@ -35,20 +38,21 @@ const Repository = ({
 	stars,
 	issues,
 	days,
+	...rest
 }) => {
 	return (
-		<RepositoryWrapper md>
-			<ImageWrapper width='90%'>
+		<RepositoryWrapper md {...rest}>
+			<ImageWrapper>
 				<Image src={src} alt={name} />
 			</ImageWrapper>
 			<RepositoryInfo>
-				<Title fontSize='2rem'>{repoName}</Title>
-				<Text fontSize='1rem'>{repoDescription}</Text>
-				<RepositoryDetails>
+				<Title fontSize='1.5rem'>{repoName}</Title>
+				<Text fontSize='0.95rem'>{repoDescription}</Text>
+				<RepositoryDetails md>
 					<RepoButton>Stars: {stars}</RepoButton>
 					<RepoButton>Issues: {issues}</RepoButton>
 					<Text width='50%'>
-						Submitted {days} days ago by {repoName.toLowerCase()}
+						Submitted {days ? days : '0'} days ago by {repoName.toLowerCase()}
 					</Text>
 				</RepositoryDetails>
 			</RepositoryInfo>

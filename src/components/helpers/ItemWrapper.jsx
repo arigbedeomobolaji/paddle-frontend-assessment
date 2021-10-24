@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 // jshint ignore:start
 
 import React from 'react';
@@ -13,22 +14,17 @@ export const Wrapper = styled.div`
 	align-items: ${({ alignItems }) => (alignItems ? alignItems : 'center')};
 	padding: ${({ padding }) => (padding ? padding + 'px' : '1rem')};
 	margin: ${({ margin }) =>
-		margin && margin !== 'auto'
-			? margin + 'px'
-			: margin === 'auto'
-			? margin
-			: '0'};
+		margin && margin !== 'auto' ? margin : margin === 'auto' ? margin : '0'};
 	width: ${({ width }) => (width ? width : 'auto')};
 
 	@media (max-width: ${({ theme }) => theme.screen && theme.screen.tablet}) {
 		flex-direction: ${({ md }) => (md ? 'column' : 'row')};
 		justify-content: ${({ md }) => md && 'center'};
 		align-items: ${({ md }) => md && 'center'};
+		width: 98%;
 	}
 `;
 
-const ItemWrapper = ({ children, ...rest }) => {
-	return <Wrapper {...rest}>{children}</Wrapper>;
-};
+const ItemWrapper = (props) => <Wrapper {...props}>{props.children}</Wrapper>;
 
 export default ItemWrapper;

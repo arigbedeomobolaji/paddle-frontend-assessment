@@ -44,6 +44,7 @@ const Footer = () => {
 							flexDirection='column'
 							justifyContent='flex-start'
 							alignItems='flex-start'
+							md
 						>
 							<Title fontSize='1.1rem'>Product</Title>
 							<Link to='#'>Praesent</Link>

@@ -16,10 +16,16 @@ const Navbar = styled(ItemWrapper)`
 	@media (max-width: 840px) {
 		display: none;
 	}
+	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
+		display: none;
+	}
 `;
 
 const RightNavbar = styled(ItemWrapper)`
 	@media (max-width: 840px) {
+		display: none;
+	}
+	@media (max-width: ${({ theme }) => theme.screen.tablet}) {
 		display: none;
 	}
 `;
@@ -74,7 +80,7 @@ const Header = ({ theme }) => {
 							<Link to='#'>Testimonials</Link>
 						</Navbar>
 						<RightNavbar justifyContent='flex-start' alignItems='center'>
-							<Link to='#' bold color={theme.color.dark}>
+							<Link to='#' bold='700' color={theme.color.dark}>
 								Signin
 							</Link>
 							<Button>Sign Up</Button>
@@ -94,7 +100,7 @@ const Header = ({ theme }) => {
 						<Link to='#'>FAQS</Link>
 						<Link to='#'>Pricing</Link>
 						<Link to='#'>Testimonials</Link>
-						<Link to='#' bold color={theme.color.dark}>
+						<Link to='#' bold='700' color={theme.color.dark}>
 							Signin
 						</Link>
 						<Button>Sign Up</Button>

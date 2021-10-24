@@ -8,6 +8,7 @@ import ChoosePlan from './ChoosePlan';
 import GettingStarted from './GettingStarted';
 import Testimonies from './Testimonies';
 import Subscribe from './Subscribe';
+import Footer from '../../components/Footer/Footer';
 
 const HomePage = () => {
 	return (
@@ -19,6 +20,7 @@ const HomePage = () => {
 			<GettingStarted />
 			<Testimonies />
 			<Subscribe />
+			<Footer />
 		</>
 	);
 };

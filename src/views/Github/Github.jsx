@@ -1,56 +1,34 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 // jshint ignore:start
-
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
 import ItemWrapper from '../../components/helpers/ItemWrapper';
 import Repository from '../../components/Repository';
-import numeral from 'numeral';
-// import robert from '../../images/testimony/robert.png';
+import useGithubRepo from '../../hooks/useGithubRepo';
 
 const GithubWrapper = styled(ItemWrapper)`
 	min-height: 100vh;
 `;
 
-// const testData = [
-// 	{
-// 		src: robert,
-// 		name: 'Robert Agbabiaka',
-// 		repoName: 'Tensorflow',
-// 		repoDescription: 'Tensorflow is tensorflow',
-// 		stars: 223,
-// 		issues: 234,
-// 		days: 30,
-// 	},
-// ];
-
 const Github = () => {
-	const [data, setData] = useState([]);
-	useEffect(() => {
-		const getData = async () => {
-			const response = await fetch(
-				'https://api.github.com/search/repositories?q=created:%3E2021-08-13&sort=stars&order=desc'
-			);
-			const data = await response.json();
+	const [pageNumber, setPageNumber] = useState(1);
 
-			return data.items;
-		};
+	const { loading, error, repositories, hasMore } = useGithubRepo(pageNumber);
 
-		getData().then((data) => {
-			const fetchedData = [];
-			data.forEach((data) => {
-				return fetchedData.push({
-					src: data.owner.avatar_url,
-					name: data.name,
-					repoName: data.name,
-					repoDescription: data.description,
-					stars: numeral(data.stargazers_count).format('0.0a'),
-					issues: numeral(data.open_issues_count).format('0.0a'),
-					day: data.updated_at,
-				});
+	const observer = useRef();
+	const lastRepositoryElementRef = useCallback(
+		(node) => {
+			if (loading) return;
+			if (observer.current) observer.current.disconnect();
+			observer.current = new IntersectionObserver((entries) => {
+				if (entries[0].isIntersecting && hasMore) {
+					setPageNumber((prevPageNumber) => prevPageNumber + 1);
+				}
 			});
-			setData(fetchedData);
-		});
-	}, []);
+			if (node) observer.current.observe(node);
+		},
+		[loading, hasMore]
+	);
 
 	return (
 		<>
@@ -58,11 +36,34 @@ const Github = () => {
 				flexDirection='column'
 				justifyContent='flex-start'
 				alignItems='flex-start'
-				margin='auto'
+				margin='0.5rem auto'
 				width='60%'
+				md
 			>
-				{data.length &&
-					data.map((data) => <Repository key={data.repoName} {...data} />)}
+				{repositories.length
+					? repositories.map((repository, index) => {
+							if (repositories.length === index + 1) {
+								return (
+									<div
+										ref={lastRepositoryElementRef}
+										key={repository.repoId + index}
+									>
+										<Repository {...repository} />
+									</div>
+								);
+							} else {
+								return (
+									<Repository
+										key={repository.repoName}
+										index={index}
+										{...repository}
+									/>
+								);
+							}
+					  })
+					: !loading && <div>No repository found!</div>}
+				<div>{loading && 'loading...'}</div>
+				<div>{!!error && error}</div>
 			</GithubWrapper>
 		</>
 	);
